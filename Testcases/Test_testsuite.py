@@ -1,5 +1,5 @@
 import pytest
-from ..Resources.resource_codes import *
+from Resources.resource_codes import *
 
 
 @pytest.mark.test
