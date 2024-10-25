@@ -1,39 +1,36 @@
-name: Python Application
-
+name: PyTest Framework - Python
 on:
-  workflow_dispatch:
   push:
-
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+ 
+permissions:
+  contents: read
+ 
 jobs:
-  python-build-n-publish:
-    name: Build and publish Python distribution
+  test:
     runs-on: ubuntu-latest
-
+ 
     steps:
-      - uses: actions/checkout@main
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12.1
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.9
-
+          python-version: 3.12.1
+ 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install -U pytest
-
-      - name: Print working directory and list files
-        run: |
-          pwd
-          ls -R
-
-      - name: Run tests
-        run: python run_tests.py test
-  
-
-      - name: Upload report
+          pip install pytest
+          pip install pytest-selenium
+    
+      - name: Test with PyTest
+        run: python ./run_tests.py test
+ 
+      - name: Test Report Generation
         uses: actions/upload-artifact@v4
+        if: success() || failure()
         with:
-          name: report
-          path: Reports/Reports.html
+          name: Pytest Report           # Name of the folder
+          path: tests/Reports           # Path to test results
