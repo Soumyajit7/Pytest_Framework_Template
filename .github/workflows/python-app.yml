@@ -24,3 +24,9 @@ jobs:
 
       - name: Run tests
         run: python ./run_tests.py test
+
+      - name: Upload report
+        uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: Reports/Reports.html
