@@ -2,6 +2,7 @@ name: Tests
 
 on:
   - push
+  - pull_request
 
 jobs:
   test:
@@ -21,5 +22,5 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install tox tox-gh-actions
-    - name: Run Tests
-      run: pytest --html=Reports/Reports.html
+    - name: Test with tox
+      run: tox
