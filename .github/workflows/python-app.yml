@@ -22,6 +22,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Print working directory and list files
+        run: |
+          pwd
+          ls -R
+
       - name: Run tests
         run: python ./run_tests.py test
 
