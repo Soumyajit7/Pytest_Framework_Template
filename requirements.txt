@@ -1,0 +1,6 @@
+pandas
+openpyxl
+pytest
+pytest-html
+xlsxwriter
+python-Levenshtein
