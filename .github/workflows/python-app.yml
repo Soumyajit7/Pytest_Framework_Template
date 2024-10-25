@@ -28,7 +28,7 @@ jobs:
           ls -R
 
       - name: Run tests
-        run: python ./run_tests.py test
+        run: python -m pytest
 
       - name: Upload report
         uses: actions/upload-artifact@v4
