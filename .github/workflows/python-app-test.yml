@@ -17,8 +17,8 @@ jobs:
       - uses: actions/checkout@v3
         if: success() || failure()
       - run: |
-          python run_tests.py
-          chmod 777  /home/runner/work/Pytest_Framework_Template/Pytest_Framework_Template/Reports/
+          python run_tests.py test
+          chmod 777  /home/runner/work/python-se/python-se/Reports/
 
       - name: Set output
         if: success() || failure()
