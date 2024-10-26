@@ -1,6 +1,6 @@
 pandas
 openpyxl
-pytest
+pytest==7.4.2
 pytest-html
 xlsxwriter
 python-Levenshtein
