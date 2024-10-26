@@ -1,6 +1,2 @@
-pandas
-openpyxl
 pytest==7.4.2
-pytest-html
-xlsxwriter
-python-Levenshtein
+pytest-html==4.0.2
